@@ -16,7 +16,7 @@
         @routes
         <script src="{{ mix('js/bundle.js') }}" defer></script>
     </head>
-    <body>
+    <body class="font-poppins">
         @inertia
 
         @env ('local')
