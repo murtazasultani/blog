@@ -29,7 +29,8 @@ class PostFactory extends Factory
             'content' => $this->faker->sentence($nbWords = 200, $variableNbWords = true),
             'published' => $this->faker->boolean,
             'publish_date' => $this->faker->dateTime($max = 'now', $timezone = null),
-            'user_id' => User::count() ? User::all()->random()->id : null
+            'views' => $this->faker->numberBetween($min = 10000, $max = 99000),
+            'user_id' => User::all()->random()->id
         ];
     }
 }

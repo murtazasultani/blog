@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->boolean('published')->default(false);
             $table->dateTime('publish_date')->default(now());
             $table->foreignId('user_id')->nullable()->index();
+            $table->integer('views')->nullable()->default(0);
             $table->timestamps();
         });
     }

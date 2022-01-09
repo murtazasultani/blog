@@ -3,7 +3,8 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\API\PostController;
+use App\Http\Controllers\API\PostController as PostAPIController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -23,13 +24,16 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::resource('posts', PostController::class)->only([
+    'index', 'show'
+]);
 
 // API:
 Route::group(['prefix' => 'api'], function () {
         
     // Open API:
 
-    Route::resource('posts', PostController::class)->only([
+    Route::resource('posts', PostAPIController::class)->only([
         'index'
     ]);
 
