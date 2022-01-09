@@ -28,6 +28,8 @@ Route::resource('posts', PostController::class)->only([
     'index', 'show'
 ]);
 
+Route::get('posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
+
 // API:
 Route::group(['prefix' => 'api'], function () {
         
