@@ -12,12 +12,13 @@ const tailwindcss = require('tailwindcss');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js/bundle.js')
+mix.js('resources/js/app.js', 'public/js/bundle.js').vue()
     .sass('resources/sass/app.scss', 'public/css/bundle.css')
     .options({
         processCssUrls: false,
         postCss: [tailwindcss('./tailwind.config.js')],
     })
+    .webpackConfig(require('./webpack.config'))
     .sourceMaps(mix.inProduction(), 'source-map');
 
     if (mix.inProduction()) {
