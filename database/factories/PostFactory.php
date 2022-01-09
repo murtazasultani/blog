@@ -29,7 +29,7 @@ class PostFactory extends Factory
             'content' => $this->faker->sentence($nbWords = 200, $variableNbWords = true),
             'published' => $this->faker->boolean,
             'publish_date' => $this->faker->dateTime($max = 'now', $timezone = null),
-            'user_id' => User::all() ? User::all()->random()->id : null
+            'user_id' => User::count() ? User::all()->random()->id : null
         ];
     }
 }
