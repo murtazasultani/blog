@@ -1,66 +1,34 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# A simple blog post website
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> This is the source code repository for blog.
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. Fork this repository to your own account.
+2. Clone the Forked repository `git clone https://github.com/your_github_username/blog.git`
+3. After cloning, now run `cd blog` and get into your newly cloned local repository/folder.
+4. Run `composer install` to install the dependencies as defined in the composer.json file.
+5. Run `npm install` to install the dependencies as defined in the package.json file.
+6. Now is the time to add the upstream remote address. This will be something useful in a team environment. Let’s say three person is working on a repository and everyone brings and pushes changes into what we call `upstream` or main repository. If you run `git remote -v` you will see that you have only `origin` configured and that’s looking to your fork. Now let’s add `upstream` as well:
+   `git remote add upstream https://github.com/murtazasultani/blog.git`
+7. you can create `.env` by `cp .env.example .env`
+   then add your database credential in it.
+8. Run `php artisan key:generate` to generate a key for your app.
+9. Run `php artisan migrate --seed` to run the database migrations.
+10. Run `npm run watch` or `npm run dev` to compile the assets.
+11. Run `php artisan serve` to Serve the application on the PHP development server.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+> You can now visit the app in your browser by visiting [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Good Practices
 
-## Learning Laravel
+1. Before doing fetching any records from upstream or pushing, always check if you are in the right branch. You can see what branch you are in by running the following command:
+   `git branch`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Before doing any new work, always run `git fetch upstream` and then `git merge upstream/master` on the master branch. If you are not in the master branch, simply run `get checkout master` first to make sure you are in the master branch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. Keep every commit and its message meaningful and relevant.
 
-## Laravel Sponsors
+4. Keep your PR titles meaningful and relevant.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. Always include `ifix-` before your branch names. That’s our common pattern. `i` there is issue and fix is the fix you are providing.
