@@ -13,3 +13,9 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/public/css/bundle.css
+/public/css/bundle.css.map
+/public/js/bundle.js
+/public/js/bundle.js.map
+/public/js/bundle.js.LICENSE.txt
+/public/mix-manifest.json
