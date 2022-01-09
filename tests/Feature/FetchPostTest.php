@@ -42,7 +42,19 @@ class FetchPostTest extends TestCase
                 'publish_date',
                 'user_id',
                 'created_at',
-                'updated_at'
+                'updated_at',
+                'comments' => [
+                    '*' => [
+                        'name',
+                        'email',
+                        'comment',
+                        'post_id',
+                        'comment_id',
+                        'created_at',
+                        'updated_at',
+                        'comments'
+                    ]
+                ]
             ]
         ]);
     }
