@@ -19,11 +19,9 @@ class CreatePostCommentsTable extends Migration
             $table->string('email')->nullable();
             $table->text('comment');
             $table->foreignId('post_id')->index();
-            $table->foreignId('comment_id')->index();
+            $table->foreignId('comment_id')->nullable()->index();
 
             $table->foreign('post_id')->references('id')->on('posts');
-            $table->foreign('comment_id')->references('id')->on('post_comments');
-            $table->foreignId('user_id')->nullable()->index();
 
             $table->timestamps();
         });
