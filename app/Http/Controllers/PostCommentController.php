@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\PostComment;
 use Illuminate\Http\Request;
 use App\Contract\CommentContract;
-use Illuminate\Support\Facades\Validator;
 use App\Models\Post;
+use App\Http\Requests\StorePostCommentRequest;
 
 class PostCommentController extends Controller
 {
@@ -22,22 +22,12 @@ class PostCommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Http\Requests\StorePostCommentRequest $request
      * @param  \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Post $post)
+    public function store(StorePostCommentRequest $request, Post $post)
     {
-        Validator::make([
-            'name'  => $request->name,
-            'email'  => $request->email,
-            'comment'  => $request->comment,
-        ], [
-            'name'  => ['required', 'string', 'max:255'],
-            'email'  => ['required', 'string', 'email', 'max:255'],
-            'comment'  => ['required','string'],
-        ])->validateWithBag('addComment');
-
         $comment = $this->comment->store($request, $post);
 
         if($comment->getData()->errors) {
