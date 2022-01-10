@@ -4,5 +4,5 @@ namespace App\Contract;
 
 interface CommentContract
 {
-    public function store($request, $post);
+    public function store($request, $post, $commentID);
 }

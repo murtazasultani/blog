@@ -27,7 +27,7 @@ Route::resource('posts', PostController::class)->only([
 ]);
 
 Route::get('posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
-Route::post('posts/{post}/comments/store', [PostCommentController::class, 'store'])->name('posts.comments.store');
+Route::post('posts/{post}/comments/store/{commentID?}', [PostCommentController::class, 'store'])->name('posts.comments.store');
 
 // API:
 Route::group(['prefix' => 'api'], function () {

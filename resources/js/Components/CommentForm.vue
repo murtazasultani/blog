@@ -82,7 +82,9 @@
         
         methods: {
             addComment() {
-                this.commentForm.post(`/posts/${this.postID}/comments/store`, {
+                let postRoute = this.commentID ? `/posts/${this.postID}/comments/store/${this.commentID}` : `/posts/${this.postID}/comments/store`
+                
+                this.commentForm.post(postRoute, {
                     preserveScroll: true,
                     onSuccess: () => {
                         this.commentForm.reset()

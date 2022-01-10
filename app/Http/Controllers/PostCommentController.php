@@ -26,9 +26,9 @@ class PostCommentController extends Controller
      * @param  \App\Models\Post $post
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostCommentRequest $request, Post $post)
+    public function store(StorePostCommentRequest $request, Post $post, $commentID = null)
     {
-        $comment = $this->comment->store($request, $post);
+        $comment = $this->comment->store($request, $post, $commentID);
 
         if($comment->getData()->errors) {
             abort(500);

@@ -19,8 +19,8 @@
             </div>
          </div>
          <div v-if="postID" class="flex-1 mb-4">
-            <span class="mt-2 text-sm text-gray-600 cursor-pointer">Reply</span>
-            <comment-form v-if="false" commentID="0"  :postID="postID" />
+            <span @click="activeCommentForm(comment.id)" class="mt-2 text-sm text-gray-600 cursor-pointer">Reply</span>
+            <comment-form v-if="(selectedCommentID === comment.id) && isCommentFormActive" :commentID="selectedCommentID"  :postID="postID" />
          </div>
          <div class="flex-1">
             <slot name="comment">
@@ -47,14 +47,18 @@
       },
       data() {
          return {
-            
+            isCommentFormActive: false,
+            selectedCommentID: null
          }
       },
       components: {
          CommentForm
       },
       methods: {
-            
+            activeCommentForm(commentID) {
+               this.selectedCommentID = commentID
+               this.isCommentFormActive = true
+            }
       }
    }
 </script>

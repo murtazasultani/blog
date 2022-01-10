@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Auth;
 class CommentRepository implements CommentContract
 {
 
-   public function store($request, $post)
+   public function store($request, $post, $commentID)
    {
         
       try {
 
-         $postComment = PostComment::create($this->mapCommentStoreRequest($request, $post));
+         $postComment = PostComment::create($this->mapCommentStoreRequest($request, $post, $commentID));
 
          return response()->json([
             'data'   => $postComment,
@@ -40,13 +40,14 @@ class CommentRepository implements CommentContract
     * @param $request
     * @return array
     */
-   private function mapCommentStoreRequest($request, $post)
+   private function mapCommentStoreRequest($request, $post, $commentID)
    {
       return [
-         'post_id'   => $post->id,
-         'name'      => $request->name ? $request->name : Auth::user()->name,
-         'email'     => $request->email ? $request->email : Auth::user()->email,
-         'comment'   => $request->comment
+         'post_id'      => $post->id,
+         'comment_id'   => $commentID,
+         'name'         => $request->name ? $request->name : Auth::user()->name,
+         'email'        => $request->email ? $request->email : Auth::user()->email,
+         'comment'      => $request->comment
       ];
    }
 
