@@ -24,6 +24,7 @@ class PostResource extends JsonResource
             'publish_date'      => $this->publish_date ? $this->publish_date->format('F d - H:i') : null,
             'user'              => $this->user,
             'created_at'        => $this->created_at->format('F d, Y - H:i'),
+            'likes'             => $this->likes,
             'comments'          => CommentResource::collection($this->comments)
         ];
     }

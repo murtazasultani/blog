@@ -14,7 +14,7 @@ class CommentRepository implements CommentContract
    public function store($request, $post)
    {
         
-      // try {
+      try {
 
          $postComment = PostComment::create($this->mapCommentStoreRequest($request, $post));
 
@@ -23,15 +23,15 @@ class CommentRepository implements CommentContract
             'errors'  => null
          ]);
 
-      // } catch (\Exception $exception) {
+      } catch (\Exception $exception) {
 
-      //    report($exception);
+         report($exception);
 
-      //    return response()->json([
-      //       'data'      => null,
-      //       'errors'    => 'Something went wrong'
-      //    ]);
-      // }
+         return response()->json([
+            'data'      => null,
+            'errors'    => 'Something went wrong'
+         ]);
+      }
    }
 
    /**

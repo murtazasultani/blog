@@ -12,7 +12,7 @@ class PostRepository implements PostContract
    {  
       try {
 
-         $postLike = PostLike::firstOrCreate([
+         $postLike = PostLike::create([
             'post_id' => $post->id,
             'user_id' => Auth::id()
          ]);
