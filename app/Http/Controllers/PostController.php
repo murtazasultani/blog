@@ -9,10 +9,10 @@ use App\Contract\PostContract;
 
 class PostController extends Controller
 {
-    // TO DO: Write documentation
+    // TODO: Write documentation
     protected $post;
 
-    // TO DO: Write documentation
+    // TODO: Write documentation
     public function __construct(PostContract $post)
     {
         $this->middleware('auth')->only(['like']);
