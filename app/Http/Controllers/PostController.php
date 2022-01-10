@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Inertia\Inertia;
 use App\Http\Resources\PostResource;
+use App\Contract\PostContract;
 
 class PostController extends Controller
 {
+    // TO DO: Write documentation
+    protected $post;
+
+    // TO DO: Write documentation
+    public function __construct(PostContract $post)
+    {
+        $this->middleware('auth')->only(['like']);
+        $this->post = $post;
+    }
+
     /**
      * Display the specified resource.
      *
@@ -21,5 +32,22 @@ class PostController extends Controller
         return Inertia::render('Posts/Show', [
             'post' => new PostResource($post->fresh())
         ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Models\Post $post
+     * @return \Illuminate\Http\Response
+     */
+    public function like(Post $post)
+    {
+        $likedPost = $this->post->like($post);
+
+        if($likedPost->getData()->errors) {
+            abort(500);
+        }
+
+        return redirect()->back();
     }
 }

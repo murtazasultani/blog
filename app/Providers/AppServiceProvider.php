@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Contract\PostContract;
+use App\Repository\PostRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->useRepositories();
+    }
+
+    // TODO: Write Method Documentation
+    protected function useRepositories()
+    {
+        $services = [
+            PostContract::class => PostRepository::class,
+        ];
+
+        foreach ($services as $key => $value) {
+            $this->app->singleton($key, $value);
+        }
     }
 }
