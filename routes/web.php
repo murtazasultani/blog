@@ -2,7 +2,6 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 use App\Http\Controllers\API\PostController as PostAPIController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\HomeController;
@@ -21,9 +20,7 @@ use App\Http\Controllers\PostCommentController;
 
 Route::get('', [HomeController::class, 'home'])->name('home');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+Route::get('dashboard', [HomeController::class, 'dashboard'])->middleware(['auth:sanctum', 'verified'])->name('dashboard');
 
 Route::resource('posts', PostController::class)->only([
     'index', 'show', 'create', 'store'
