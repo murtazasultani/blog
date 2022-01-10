@@ -7,3 +7,51 @@
 .container.--py {
     @apply py-12 lg:py-24;
 }
+
+.line-clamp-5 {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-gray-900 font-tiempos-headline;
+}
+
+h2 {
+  @apply text-3xl;
+}
+
+h3 {
+  @apply text-2xl;
+}
+h4 {
+  @apply text-xl;
+}
+
+p, a {
+  @apply font-poppins text-gray-500;
+    
+}
+p {
+  @apply text-gray-700 text-base leading-relaxed tracking-wide;
+}
+p.font-medium {
+  font-weight: 600;
+}
+
+a {
+  @apply text-base;
+}
+a:hover {
+  @apply text-gray-700;
+}
+a.active {
+  @apply text-gray-800;
+}
