@@ -55,10 +55,10 @@
          CommentForm
       },
       methods: {
-            activeCommentForm(commentID) {
-               this.selectedCommentID = commentID
-               this.isCommentFormActive = true
-            }
+         activeCommentForm(commentID) {
+            this.selectedCommentID = commentID
+            this.isCommentFormActive = true
+         }
       }
    }
 </script>
