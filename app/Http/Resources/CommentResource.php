@@ -20,7 +20,8 @@ class CommentResource extends JsonResource
             'profile_photo_path'    => 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&color=7F9CF5&background=EBF4FF',
             'email'                 => $this->email,
             'comment'               => $this->comment,
-            'created_at'            => $this->created_at->format('F jS, Y - H:i')
+            'created_at'            => $this->created_at->format('F jS, Y - H:i'),
+            'comments'              => CommentResource::collection($this->comments)
         ];
     }
 }

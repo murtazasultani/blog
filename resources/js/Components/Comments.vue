@@ -6,7 +6,29 @@
                <p>There is no comment yet</p>
             </li>
             <template v-for="(comment, index) in post.comments" :key="index">
-               <comment :comment="comment" :postID="post.id" />
+               <comment :comment="comment" :postID="post.id">
+                  <!-- 1 -->
+                  <template #comment>
+                     <template v-for="(comment, index) in comment.comments" :key="index">
+                        <comment :comment="comment" :postID="post.id">
+                           <!-- 2 -->
+                           <template #comment>
+                              <template v-for="(comment, index) in comment.comments" :key="index">
+                                 <comment :comment="comment" :postID="post.id">
+                                    <!-- 3 -->
+                                    <template #comment>
+                                       <template v-for="(comment, index) in comment.comments" :key="index">
+                                          <comment :comment="comment">
+                                          </comment>
+                                       </template>
+                                    </template>
+                                 </comment>
+                              </template>
+                           </template>
+                        </comment>
+                     </template>
+                  </template>
+               </comment>
             </template>
          </ul>
       </div>

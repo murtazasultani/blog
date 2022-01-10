@@ -18,9 +18,14 @@
                </div>
             </div>
          </div>
-         <div class="flex-1">
-            <p class="mt-2 text-sm cursor-pointer">Reply</p>
+         <div v-if="postID" class="flex-1 mb-4">
+            <span class="mt-2 text-sm text-gray-600 cursor-pointer">Reply</span>
             <comment-form v-if="false" commentID="0"  :postID="postID" />
+         </div>
+         <div class="flex-1">
+            <slot name="comment">
+
+            </slot>
          </div>
       </div>
    </li>
