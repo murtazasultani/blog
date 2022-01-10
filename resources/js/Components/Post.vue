@@ -24,13 +24,15 @@
                      </button>
                   </span>
                   <span class="inline-flex items-center text-sm">
-                     <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
-                        <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                           <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
-                        </svg>
-                        <span class="font-medium text-gray-900">{{ post.comments.length }}</span>
-                        <span class="sr-only">comments</span>
-                     </button>
+                     <a href="#coments">
+                        <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
+                           <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                              <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
+                           </svg>
+                           <span class="font-medium text-gray-900">{{ post.comments.length }}</span>
+                           <span class="sr-only">comments</span>
+                        </button>
+                     </a>
                      </span>
                   <span class="inline-flex items-center text-sm">
                      <button type="button" class="inline-flex space-x-2 text-gray-400 hover:text-gray-500">
@@ -60,7 +62,7 @@
                <div class="w-full border-t border-gray-300"></div>
             </div>
          </div>
-         <div>
+         <div id="coments">
             <comments :post="post"/>
          </div>
       </div>

@@ -6,6 +6,7 @@ use App\Models\Post;
 use Inertia\Inertia;
 use App\Http\Resources\PostResource;
 use App\Contract\PostContract;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -15,7 +16,7 @@ class PostController extends Controller
     // TODO: Write documentation
     public function __construct(PostContract $post)
     {
-        $this->middleware('auth')->only(['like']);
+        $this->middleware('auth')->only(['like', 'create', 'store']);
         $this->post = $post;
     }
 
@@ -32,6 +33,33 @@ class PostController extends Controller
         return Inertia::render('Posts/Show', [
             'post' => new PostResource($post->fresh())
         ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return Inertia::render('Posts/Create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \App\Http\Requests\StorePostRequest $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(StorePostRequest $request)
+    {
+        $post = $this->post->store($request);
+
+        if($post->getData()->errors) {
+            abort(500);
+        }
+
+        return redirect()->route('posts.show', $post->getData()->data->id);
     }
 
     /**

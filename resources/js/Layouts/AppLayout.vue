@@ -18,7 +18,7 @@
                         
                     
                         <div class="flex items-center justify-end xl:col-span-4">
-                            <Link href="#" class="mr-4 lg:mr-6">
+                            <Link :href="route('posts.create')" class="mr-4 lg:mr-6">
                                 <jet-button>
                                     New Post
                                 </jet-button>

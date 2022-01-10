@@ -3,15 +3,9 @@
 
     <jet-authentication-card>
         <div class="mx-auto w-full max-w-sm">
-            <div>
-                <Link :href="route('home')">
-                    <jet-application-logo class="block h-12 w-auto" />
-                </Link>
-                <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
-                    Sign in to your account
-                </h2>
-            </div>
-
+            <h2 class=" text-3xl font-extrabold text-gray-900">
+                Sign in to your account
+            </h2>
             <div class="mt-6">
                 <form @submit.prevent="submit" method="POST" class="space-y-6">
                     <div>
@@ -58,7 +52,6 @@
 </template>
 
 <script>
-    import JetApplicationLogo from '@/Jetstream/ApplicationLogo.vue'
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
     import JetButton from '@/Jetstream/Button.vue'
     import JetInput from '@/Jetstream/Input.vue'
@@ -70,7 +63,6 @@
     export default {
         components: {
             Head,
-            JetApplicationLogo,
             JetAuthenticationCard,
             JetButton,
             JetInput,

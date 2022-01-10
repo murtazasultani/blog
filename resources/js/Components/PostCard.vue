@@ -87,9 +87,9 @@
       },
 
       methods: {
-         likePost(uuid) {
-            this.$inertia.get(route('posts.like', uuid), {
-               preserveScroll: true,
+         likePost(id) {
+            this.$inertia.get(route('posts.like', id), {
+               preserveScroll: true
             })
          }
       }

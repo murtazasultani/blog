@@ -26,7 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::resource('posts', PostController::class)->only([
-    'index', 'show'
+    'index', 'show', 'create', 'store'
 ]);
 
 Route::get('posts/{post}/like', [PostController::class, 'like'])->name('posts.like');
