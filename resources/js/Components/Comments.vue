@@ -6,11 +6,11 @@
                <p>There is no comment yet</p>
             </li>
             <template v-for="(comment, index) in post.comments" :key="index">
-               <comment :comment="comment" />
+               <comment :comment="comment" :postID="post.id" />
             </template>
          </ul>
       </div>
-      <comment-form :post="post" />
+      <comment-form :postID="post.id" />
    </div>
 </template>
 

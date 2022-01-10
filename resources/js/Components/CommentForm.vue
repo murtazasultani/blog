@@ -49,8 +49,12 @@
     import JetActionMessage from '@/Jetstream/ActionMessage'
     export default {
         props: {
-            post: {
-                type: Object,
+            postID: {
+                type: Number,
+                default: null
+            },
+            commentID: {
+                type: Number,
                 default: null
             }
         },
@@ -78,7 +82,7 @@
         
         methods: {
             addComment() {
-                this.commentForm.post(`/posts/${this.post.id}/comments/store`, {
+                this.commentForm.post(`/posts/${this.postID}/comments/store`, {
                     preserveScroll: true,
                     onSuccess: () => {
                         this.commentForm.reset()
