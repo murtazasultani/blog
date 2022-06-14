@@ -1,6 +1,8 @@
 # A simple blog post website
 
-> This is the source code repository for blog.
+> This is the source code repository for blog. [screenshots](/public/images/screenshots)
+
+<img  width="100%" src="/public/images/screenshots/Create Post Page.png" align="center"/>
 
 ## Installation
 
